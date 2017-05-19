@@ -25,12 +25,7 @@ function getQueryParams() {
  */
 function getUserCredentials(query) {
   var credentials = {};
-  if (query.user && query.pass) {
-    credentials = {
-      'x-auth-username': query.user,
-      'x-auth-password': query.pass,
-    };
-  } else if (query.token) {
+  if (query.token) {
     credentials = {
       'x-access-token': query.token,
     };
