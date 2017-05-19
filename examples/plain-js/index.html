@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FloorViewer SDK - Plain-JS</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="./index.css"/>
+  <script src="https://438f7d883d1810f8cba2-32691eb72b9b0d2a8f8df47172458325.ssl.cf1.rackcdn.com/sdk/dist/floor-viewer-sdk.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+<div class="container theme-showcase" role="main">
+  <div class="jumbotron">
+    <h1>FloorViewer SDK - Plain JS</h1>
+    <p>
+      This document presents an example written in plain JS on how to
+      embed and interact with the iOffice Floor-Viewer.
+    </p>
+  </div>
+  <div class="page-header">
+    <h1>Interaction</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="panel-title">Ping by Room</h3></div>
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">Id</span>
+            <input type="text" class="form-control" placeholder="Id ..." id="input-room-id">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" onclick="ping['roomById']()">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">Name</span>
+            <input type="text" class="form-control" placeholder="Name ..." id="input-room-name">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" onclick="ping['roomByName']()">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="panel-title">Selection by Room</h3></div>
+        <div class="panel-body">
+          <div class="input-group">
+            <span class="input-group-addon">Id</span>
+            <input type="text" class="form-control" placeholder="Id ..." id="select-room-id">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" onclick="select['roomById']()">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon">Name</span>
+            <input type="text" class="form-control" placeholder="Name ..." id="select-room-name">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" onclick="select['roomByName']()">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="panel-title">Map Information</h3></div>
+        <div id="map-info" class="panel-body">
+          Click on a room ...
+        </div>
+      </div>
+
+      <div class="panel panel-danger">
+        <div class="panel-heading"><h3 class="panel-title">FloorViewer Errors</h3></div>
+        <div id="map-errors" class="panel-body">
+          This panel displays errors thrown by the map. For instance, try selecting a room
+          which is not in the map.
+        </div>
+      </div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="panel-title">Markers</h3></div>
+        <div class="checkbox panel-body">
+          <label>
+            <input type="checkbox" id="home-checkbox" onchange="setMarkers['home']()" checked>You are here
+          </label>
+          <br>
+          <label>
+            <input type="checkbox" id="pizza-checkbox" onchange="setMarkers['pizza']()" checked>Cafeteria
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-8" id="fv-container"></div>
+  </div>
+</div>
+</body>
+</html>
