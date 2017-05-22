@@ -9,3 +9,11 @@ browser with the following query parameters:
 ```
 ?token=<oauth-token>&floorId=<id>&siteUrl=<ioffice-site>
 ```
+
+## Angular 4 example
+
+- Navigate to `examples/angular`
+- Run `npm install`.
+- Run `npm run dev` to start webpack in watch mode.
+- Run `npm start` to start a local server (requires Python).
+- Navigate to `http://localhost:3001` with the same parameters used in the plain-js example.
