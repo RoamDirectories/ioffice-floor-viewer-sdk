@@ -49,16 +49,14 @@ function main() {
   });
 
   sdk.onReady().then(function () {
-    setTimeout(function () {
-      sdk.getVersion().then(function (version) {
-        console.log('Using VERSION:', version);
+    sdk.getVersion().then(function (version) {
+      console.log('Using VERSION:', version);
+    });
+    sdk.addMarkers(markers).then(function (ids) {
+      _.each(ids, function(id, index) {
+        markers[index].id = id;
       });
-      sdk.addMarkers(markers).then(function (ids) {
-        _.each(ids, function(id, index) {
-          markers[index].id = id;
-        });
-      });
-    }, 1000);
+    });
   });
 
   var markers = [
