@@ -1,1 +1,4 @@
 .idea
+node_modules
+examples/typescript/index.js
+examples/typescript/bundle.js

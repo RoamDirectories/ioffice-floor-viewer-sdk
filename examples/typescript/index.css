@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.jumbotron {
+  background-color: #DFEDF5;
+}
+
+.jumbotron h1 {
+  color: #406F8D;
+}
+
+#fv-container {
+  height: 500px;
+}
