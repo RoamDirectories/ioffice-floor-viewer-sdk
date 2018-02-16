@@ -1,5 +1,6 @@
 import { Component, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
-import { FloorViewerSDK } from '@ioffice/floor-viewer-sdk';
+// import { FloorViewerSDK } from '@ioffice/floor-viewer-sdk';
+declare var FloorViewerSDK: any;
 
 @Component({
   selector: 'app',
@@ -58,6 +59,12 @@ class AppComponent implements AfterContentInit {
     }
   ];
 
+  otherMarker: any = [{
+      icon: 'pizza',
+      markerColor: 'green',
+      latlng: [-3.8203125, 1.265625]
+    }];
+
   log(data: string) {
     console.log(data);
   }
@@ -74,20 +81,32 @@ class AppComponent implements AfterContentInit {
     this.fv.onReady().then(() => {
       // Adding timeout for now because of an issue with the SDK (to be fixed in next release)
       setTimeout(() => {
+        console.log('FV', this.fv);
         this.fv.getVersion().then((version) => {
           console.log('Using VERSION:', version);
         });
+        console.log('markers:', this.markers);
         this.fv.addMarkers(this.markers).then((ids) => {
           ids.forEach((id, index) => {
             this.markers[index].id = id;
           });
         });
+
+        setTimeout(() => {
+          console.log('Late update');
+          this.fv.addMarkers(this.otherMarker).then((ids) => {
+            console.log('new marker:', ids);
+          }).catch(err => {
+            console.log('Late catch error:', err);
+          })
+
+        }, 5000);
       }, 1000);
     });
 
     this.fv.onRoomClick((event) => {
       // Missing types for the event, using `[]` to avoid the typescript errors for now
-      console.log('latlng: ', event['latlng']);
+      console.log('click event', event);
       const room = event['room'];
       if (!room) {
         this.roomInfo = 'No room was clicked ...';
