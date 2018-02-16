@@ -1,4 +1,4 @@
-# compiled output 
+# compiled output
 /dist
 /tmp
 /typings
@@ -49,3 +49,8 @@ Thumbs.db
 .vscode/
 
 src/favicon.ico
+\.idea
+node_modules
+examples/typescript/index.js
+examples/typescript/bundle.js
+
